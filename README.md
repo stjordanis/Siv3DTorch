@@ -111,6 +111,24 @@ This _config_ is **updated** (at a random time), so make sure you **come back** 
 | No old command leftovers   |         ✔️         |        ❌        |
 
 
+## Backtesting Signal Accuracy
+During the testing period, the model signals to buy or sell based on its prediction for price
+movement the following day. By putting your trading algorithm aside and testing for signal accuracy
+alone, you can rapidly build and test more reliable models.
+
+```python
+from clairvoyant.engine import Backtest
+import pandas as pd
+
+features  = ["EMA", "SSO"]   # Financial indicators of choice
+trainStart = 0               # Start of training period
+trainEnd   = 700             # End of training period
+testStart  = 701             # Start of testing period
+testEnd    = 1000            # End of testing period
+buyThreshold  = 0.65         # Confidence threshold for predicting buy (default = 0.65) 
+sellThreshold = 0.65         # Confidence threshold for predicting sell (default = 0.65)
+continuedTraining = False    # Continue training during testing period? (default = false)
+
 ## Author
 
 | [![ArminC](http://www.gamerconfig.eu/files/avatars/thumbnail_arminc.png)](https://linkedin.com/in/arminc) 	|
