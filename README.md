@@ -110,24 +110,6 @@ This _config_ is **updated** (at a random time), so make sure you **come back** 
 | New commands/values        |         ✔️         |        ❌        |
 | No old command leftovers   |         ✔️         |        ❌        |
 
-## Symbols
-
-      *: Multiple commands under a category.
-     >>: Official description.
-	<->: Analyze;
-    <i>: Informal;
-    <!>: Important;
-
-## Binds
-![ArminC AutoExec Binds](https://raw.githubusercontent.com/ArmynC/ArminC-Keyboard-Layout/master/image/arminc_autoexec_binds.png)
-
-## Wiki
-
-Do you **need some help**? Check the _articles_ from the [wiki](https://github.com/ArmynC/ArminC-AutoExec/wiki/).
-
-## Contributing
-
-Got **something interesting** you'd like to **share**? Learn about [contributing](https://github.com/ArmynC/ArminC-AutoExec/blob/master/docs/CONTRIBUTING.md).
 
 ## Author
 
@@ -142,10 +124,6 @@ Reach out to me at one of the following places:
 - Website at [arminc.ga](https://arminc.ga)
 - Steam Profile at **[ArminC](https://steamcommunity.com/id/arminc/)**
 - E-Mail: **arminandrey@gmail.com**
-
-## Donate
-
-[![Donate via Steam](https://img.shields.io/badge/Donate%20via-Steam-blue.svg?&style=for-the-badge&logo=steam&logoColor=white)](https://steamcommunity.com/tradeoffer/new/?partner=133646824&token=XiRncDom)
 
 ## License
 
