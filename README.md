@@ -128,6 +128,7 @@ testEnd    = 1000            # End of testing period
 buyThreshold  = 0.65         # Confidence threshold for predicting buy (default = 0.65) 
 sellThreshold = 0.65         # Confidence threshold for predicting sell (default = 0.65)
 continuedTraining = False    # Continue training during testing period? (default = false)
+```
 
 ## Author
 
