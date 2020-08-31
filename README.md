@@ -3,7 +3,7 @@
   <a href="https://github.com/ArmynC/ArminC-AutoExec/archive/master.zip"><img src="TORCHLOGO.png"></a>
 </h1>
 
-<h4 align="center">An integration of the JUCE C++ Audio framework with the Libtorch C++ deep Learning library</h4>
+<h4 align="center">An integration of the JUCE C++ Audio framework with the Libtorch C++ Deep Learning library</h4>
 
 <p align="center">
     <a href="https://github.com/ArmynC/ArminC-AutoExec/commits/master">
