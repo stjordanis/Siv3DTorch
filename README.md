@@ -102,20 +102,37 @@ void Main()
 | Libtorch C++ 1.6           |         ✔️         |        ❌        |
 
 
-## Installation
+
 ## Requirements:
 * Windows 10 and Microsoft Visual C++ 2019 16.4, Linux is not supported at the moment because of the lack of CMake support.
 * NVIDIA CUDA 10.2. I did not test with any other CUDA version. 
 * PyTorch / LibTorch c++ version 1.6.  
 * 64 bit only.  
 
-##### Downloading and installing steps:
+## Installation
+
+#### Downloading and installing steps LIBTORCH C++:
 * **[Download]()** the latest version of Siv3D.
 * **Go** to the following path: `\...\Steam\userdata\<Your_SteamID3>\730\local\`
   * See below **[how to find your SteamID3](https://github.com/ArmynC/ArminC-AutoExec#how-to-find-your-steamid3)**.
 * Place the **cfg** folder (from .zip) inside the **local** folder (from the path).
   * Replace all files if it asks.
     * To use the **Video Settings**, rename `video_optional.txt` to `video.txt` and set it to `Read-only`.
+
+#### Downloading and installing steps Siv3D C++:
+* **[Download]()** the latest version of Siv3D.
+
+## Visual Studio 19 config 
+* ![Siv3DTorch++ Code](https://github.com/QuantScientist/Siv3DTorch/blob/master/vc-torch.png?raw=true)
+
+* ![Siv3DTorch++ Code](https://github.com/QuantScientist/Siv3DTorch/blob/master/vc-include.png?raw=true)
+
+* ![Siv3DTorch++ Code](https://github.com/QuantScientist/Siv3DTorch/blob/master/vc-deps-input.png?raw=true)
+
+* ![Siv3DTorch++ Code](https://github.com/QuantScientist/Siv3DTorch/blob/master/vc-confrom.png?raw=true)
+
+* ![Siv3DTorch++ Code](https://github.com/QuantScientist/Siv3DTorch/blob/master/vc-additional.png?raw=true)
+
 
 ## Contributing
 
