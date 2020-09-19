@@ -120,6 +120,8 @@ void Main()
 * NVIDIA CUDA 10.2. I did not test with any other CUDA version. 
 * PyTorch / LibTorch c++ version 1.6.  
 * 64 bit only.  
+* Linking against CUDA is done with the _-INCLUDE:?warp_size@cuda@at@@YAHXZ_ C++ command line flag in VC 19. **Without this, 
+you will only be able to allocate CPU tensors**.  
 
 ## Installation 
 
