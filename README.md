@@ -20,7 +20,13 @@
 <tr>
 <td>
   
-**Siv3DTorch++** is an **integration** of the well-known Japanese **_OpenSiv3D_** (https://github.com/Siv3D/OpenSiv3D) creative coding library (https://siv3d.github.io/) and my favourite Deep Learning Library Libtorch: the **_PyTorch_** C++ frontend. 
+**Siv3DTorch++** is an **integration** of the well-known Japanese **_OpenSiv3D_** (https://github.com/Siv3D/OpenSiv3D) creative coding library (https://siv3d.github.io/) and my favourite Deep Learning Library Libtorch: the **_PyTorch_** C++ frontend.
+
+Unfortunalty, though I wanted to use **CMake**, and most users of Libtorch I know of use CMake in thier projects (https://github.com/prabhuomkar/pytorch-cpp), 
+at the moment Siv3D does not support it and therefore I had to setup everything as a **VC 19** project which was not very easy.
+Moreover, Siv3D is a std++latest project while Libtorch is a std++17 project and therefore initially, 
+I could not compile the project until the great aouthers os Siv3D provides a simple solution (https://github.com/Siv3D/OpenSiv3D/issues/532).  
+ 
 The integration allows one to:
  
 ![Siv3DTorch++ Code](https://github.com/QuantScientist/Siv3DTorch/blob/master/vc19001.png?raw=true)
