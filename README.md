@@ -3,8 +3,9 @@
       
 <p align="center">
   <a href="#about">About</a> •
+  <a href="#credits">Credits</a> •
   <a href="#installation">Installation</a> •  
-  <a href="#features">Features</a> •  
+  <a href="#fexamples">Examples</a> •  
   <a href="#author">Author</a> •  
   <a href="#license">License</a>
 </p>
@@ -105,7 +106,7 @@ void Main()
 | Libtorch C++ 1.6           |         ✔️         |        ❌        |
 
 
-## Examples under the SRC folder
+## Examples
 
 * A Simple example, mainly for testing the integration. Allocates a tensor on the GPU.
 ![Siv3DTorch++ Code](https://github.com/QuantScientist/Siv3DTorch/blob/master/assets/simple001.gif?raw=true)
