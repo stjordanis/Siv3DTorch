@@ -20,7 +20,8 @@ void Main()
 					
 	while (System::Update())
 	{	
-		for (auto i : Range(1, 20))
+
+		for (auto i : Range(1, 30))
 		{
 			//ClearPrint();			
 			//torch::Tensor t0 = torch::tensor((i)).to(device);
@@ -29,7 +30,7 @@ void Main()
 			//Print (typeid(t0).name());		
 			auto x = (t0).data().detach().item().toFloat(); // Move it to the CPU
 			Print(x); //Use it from Siv3D			
-			Circle(300 * (x), 300*x, 50*x).draw(
+			Circle(300 * (x), 300*x, 100*x).draw(
 				(ColorF(
 				0.5 * torch::rand(1).to(device).data().detach().item().toFloat(),
 				0.9*x, 
