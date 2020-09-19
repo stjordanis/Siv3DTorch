@@ -29,7 +29,7 @@ I could not compile the project until the great authors os Siv3D provides a simp
  
 By including a single header file, `#include <torch/script.h>` The integration allows one to easily use any API from the PyTorch C++ front-end and use it fro creative coding.  
  
-![Siv3DTorch++ Code](https://github.com/QuantScientist/Siv3DTorch/blob/master/simple001.gif?raw=true)
+![Siv3DTorch++ Code](https://github.com/QuantScientist/Siv3DTorch/blob/master/assets/simple001.gif?raw=true)
 
 <p align="right">
 <sub>(Preview)</sub>
@@ -113,7 +113,7 @@ void Main()
 
 #### Downloading and installing steps LIBTORCH C++:
 * **[Download]()** the latest version of Libtorch for Windows here: https://pytorch.org/.
-![Siv3DTorch++ Code](https://github.com/QuantScientist/Siv3DTorch/blob/master/libtorch16.png?raw=true)
+![Siv3DTorch++ Code](https://github.com/QuantScientist/Siv3DTorch/blob/master/assets/libtorch16.png?raw=true)
 
 * **Go** to the following path: `mysiv3dproject/`
 * Place the **LiBtorch ZIP** folder (from .zip) inside the **prohect** folder as follows `mysiv3dproject/libtorch/`:
@@ -125,15 +125,15 @@ void Main()
  
 
 ## Visual Studio 19 config 
-* ![Siv3DTorch++ Code](https://github.com/QuantScientist/Siv3DTorch/blob/master/vc-torch.png?raw=true)
+* ![Siv3DTorch++ Code](https://github.com/QuantScientist/Siv3DTorch/blob/master/assets/vc-torch.png?raw=true)
 
-* ![Siv3DTorch++ Code](https://github.com/QuantScientist/Siv3DTorch/blob/master/vc-include.png?raw=true)
+* ![Siv3DTorch++ Code](https://github.com/QuantScientist/Siv3DTorch/blob/master/assets/vc-include.png?raw=true)
 
-* ![Siv3DTorch++ Code](https://github.com/QuantScientist/Siv3DTorch/blob/master/vc-deps-input.png?raw=true)
+* ![Siv3DTorch++ Code](https://github.com/QuantScientist/Siv3DTorch/blob/master/assets/vc-deps-input.png?raw=true)
 
-* ![Siv3DTorch++ Code](https://github.com/QuantScientist/Siv3DTorch/blob/master/vc-confrom.png?raw=true)
+* ![Siv3DTorch++ Code](https://github.com/QuantScientist/Siv3DTorch/blob/master/assets/vc-confrom.png?raw=true)
 
-* ![Siv3DTorch++ Code](https://github.com/QuantScientist/Siv3DTorch/blob/master/vc-additional.png?raw=true)
+* ![Siv3DTorch++ Code](https://github.com/QuantScientist/Siv3DTorch/blob/master/assets/vc-additional.png?raw=true)
 
 
 ## Contributing
