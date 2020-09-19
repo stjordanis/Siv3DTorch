@@ -121,7 +121,7 @@ void Main()
 * PyTorch / LibTorch c++ version 1.6.  
 * 64 bit only.  
 
-## Installation ( WORK IN PROGRESS) 
+## Installation 
 
 #### Downloading and installing steps LIBTORCH C++:
 * **[Download]()** the latest version of Libtorch for Windows here: https://pytorch.org/.
