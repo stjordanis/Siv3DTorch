@@ -3,21 +3,6 @@
 </h1>
 
 <h4 align="center">An integration of the Siv3D C++ framework with the Libtorch C++ Deep Learning Library</h4>
-
-<p align="center">
-    <a href="https://github.com/QuantScientist/Siv3DTorch/commits/master">
-    <img src="https://img.shields.io/github/last-commit/ArmynC/ArminC-AutoExec.svg?style=flat-square&logo=github&logoColor=white"
-         alt="GitHub last commit">
-    <a href="https://github.com/QuantScientist/Siv3DTorch/issues">
-    <img src="https://img.shields.io/github/issues-raw/ArmynC/ArminC-AutoExec.svg?style=flat-square&logo=github&logoColor=white"
-         alt="GitHub issues">
-    <a href="https://github.com/QuantScientist/Siv3DTorch/pulls">
-    <img src="https://img.shields.io/github/issues-pr-raw/ArmynC/ArminC-AutoExec.svg?style=flat-square&logo=github&logoColor=white"
-         alt="GitHub pull requests">
-    <a href="https://twitter.com/intent/tweet?text=Try this CS:GO AutoExec:&url=https%3A%2F%2Fgithub.com%2FArmynC%2FArminC-AutoExec">
-    <img src="https://img.shields.io/twitter/url/https/github.com/ArmynC/ArminC-AutoExec.svg?style=flat-square&logo=twitter"
-         alt="GitHub tweet">
-</p>
       
 <p align="center">
   <a href="#about">About</a> •
@@ -41,7 +26,7 @@ It comes **filled** with **optimizations** that make use of the **all network ca
 
 **Each and one** of the **commands** are **finely-tuned**, _enabling all game's capacity_ (compared to default settings), **helping you** through the matchmaking.
 
-![Siv3DTorch++ Code](https://github.com/QuantScientist/Siv3DTorch/blob/master/TORCHLOGO.png?raw=true)
+![Siv3DTorch++ Code](https://github.com/QuantScientist/Siv3DTorch/blob/master/vc19001.png?raw=true)
 <p align="right">
 <sub>(Preview)</sub>
 </p>
