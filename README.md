@@ -1,6 +1,3 @@
-<h1 align="center">  
-  <img src="assets/TORCHLOGO.png"></a>
-</h1>
 
 <h4 align="center">An integration of the Siv3D C++ framework with the Libtorch C++ Deep Learning Library</h4>
       
@@ -11,6 +8,11 @@
   <a href="#author">Author</a> •  
   <a href="#license">License</a>
 </p>
+
+<h1 align="center">  
+  <img src="assets/TORCHLOGO.png"></a>
+</h1>
+
 
 ---
 
