@@ -35,6 +35,9 @@ The integration allows one to:
 ## A simple example 
 The folowing example allocates a PyTorch style tensor on the GPU ( a CPU is also supported of course), then detaches the tensor from 
 the GPU and uses the result to display on a Siv3D window. 
+
+![Siv3DTorch++ Code](https://github.com/QuantScientist/Siv3DTorch/blob/master/simple001.gif?raw=true)
+
 ```cpp
 # include <Siv3D.hpp>
 #include <torch/script.h>
