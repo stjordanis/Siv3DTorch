@@ -39,6 +39,9 @@ By including a single header file, `#include <torch/script.h>` The integration a
 </tr>
 </table>
 
+## Credits 
+* A C++17/C++20 framework for creative coding https://github.com/Siv3D/OpenSiv3D, for 日本語: https://siv3d.github.io/ja-jp/, for English: https://siv3d.github.io/. 
+
 ## A simple example 
 The folowing example allocates a PyTorch style random tensor on the GPU ( a CPU is also supported of course), applies the sigmoid to it, then detaches the tensor from 
 the GPU and uses the result to display on a Siv3D window.
@@ -90,36 +93,29 @@ void Main()
 }
 ```
 
-## Installation
-
-##### Downloading and installing steps:
-* **[Download](https://github.com/QuantScientist/Siv3DTorch/archive/master.zip)** the latest version of the config.
-* **Go** to the following path: `\...\Steam\userdata\<Your_SteamID3>\730\local\`
-  * See below **[how to find your SteamID3](https://github.com/ArmynC/ArminC-AutoExec#how-to-find-your-steamid3)**.
-* Place the **cfg** folder (from .zip) inside the **local** folder (from the path).
-  * Replace all files if it asks.
-    * To use the **Video Settings**, rename `video_optional.txt` to `video.txt` and set it to `Read-only`.
-* **[OPTIONAL]** Set the **[launch options](https://github.com/QuantScientist/Siv3DTorch/wiki/Launch-Options)**.
-  * **Right-click** on the **game title** under the _Library_ in Steam and select **Properties**.
-  * Under the **General tab** click the **Set launch options...** button.
-  * **Enter** the **launch options** you wish to apply (_be sure to separate each code with space_) and click **OK**.
-  * **Close** the _Properties_ window and **launch the game**
-* **Launch** the game and **type** in the _console_ the following command: `exec autoexec.cfg`
-
 ## Features
 
 |                            | 🔰 Siv3DTorch++ VC 19  | ◾ CMake |
 | -------------------------- | :----------------: | :-------------: |
 | PyTorch CPU tensors        |         ✔️         |        ❌        |
 | PyTorch GPU tensors        |         ✔️         |        ❌        |
-| Libtorch 1.6               |         ✔️         |        ❌        |
+| Libtorch C++ 1.6           |         ✔️         |        ❌        |
 
 
-## Backtesting Signal Accuracy
-During the testing period, the model signals to buy or sell based on its prediction for price
-movement the following day. By putting your trading algorithm aside and testing for signal accuracy
-alone, you can rapidly build and test more reliable models.
+## Installation
+## Requirements:
+* Windows 10 and Microsoft Visual C++ 2019 16.4, Linux is not supported at the moment because of the lack of CMake support.
+* NVIDIA CUDA 10.2. I did not test with any other CUDA version. 
+* PyTorch / LibTorch c++ version 1.6.  
+* 64 bit only.  
 
+##### Downloading and installing steps:
+* **[Download]()** the latest version of Siv3D.
+* **Go** to the following path: `\...\Steam\userdata\<Your_SteamID3>\730\local\`
+  * See below **[how to find your SteamID3](https://github.com/ArmynC/ArminC-AutoExec#how-to-find-your-steamid3)**.
+* Place the **cfg** folder (from .zip) inside the **local** folder (from the path).
+  * Replace all files if it asks.
+    * To use the **Video Settings**, rename `video_optional.txt` to `video.txt` and set it to `Read-only`.
 
 ## Contributing
 
