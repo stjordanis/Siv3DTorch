@@ -20,11 +20,9 @@
 <tr>
 <td>
   
-**Siv3DTorch++** is a **high-quality** _config_ for _Counter-Strike: Global Offensive_ that aims to **improve the gameplay** and its **template is perfect**, enabling you to **customize** the game **settings** to your liking.
-
-It comes **filled** with **optimizations** that make use of the **all network capacity** and **game advantages**, overall **improving the gameplay** for a wide variety of _computers and players_.
-
-**Each and one** of the **commands** are **finely-tuned**, _enabling all game's capacity_ (compared to default settings), **helping you** through the matchmaking.
+**Siv3DTorch++** is an **integration** of the well-known Japanese _Siv3D_ library and my facourite Deep Learning Library Libtorch: the _PyTorch_ C++ frontend. 
+The integration allowes one to:
+ 
 
 ![Siv3DTorch++ Code](https://github.com/QuantScientist/Siv3DTorch/blob/master/vc19001.png?raw=true)
 <p align="right">
@@ -113,8 +111,7 @@ continuedTraining = False    # Continue training during testing period? (default
 Feel free to report issues during build or execution. We also welcome suggestions to improve the performance of this application.
 
 ## Author
-Shlomo Kashani, Head of AI at DeepOncology AI, 
-Kaggle Expert, Founder of Tel-Aviv Deep Learning Bootcamp: shlomo@deeponcology.ai
+Shlomo Kashani, Head of AI at DeepOncology AI, Kaggle Expert, Author of the book _Deep Learning Interviews_: entropy@interviews.ai 
 
 ## Citation
 
