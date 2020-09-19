@@ -23,7 +23,6 @@
 **Siv3DTorch++** is an **integration** of the well-known Japanese **_OpenSiv3D_** (https://github.com/Siv3D/OpenSiv3D) creative coding library (https://siv3d.github.io/) and my favourite Deep Learning Library Libtorch: the **_PyTorch_** C++ frontend. 
 The integration allows one to:
  
-
 ![Siv3DTorch++ Code](https://github.com/QuantScientist/Siv3DTorch/blob/master/vc19001.png?raw=true)
 <p align="right">
 <sub>(Preview)</sub>
@@ -32,6 +31,47 @@ The integration allows one to:
 </td>
 </tr>
 </table>
+
+## A simple example 
+The folowing example allocates a PyTorch style tensor on the GPU ( a CPU is also supported of course), then detaches the tensor from 
+the GPU and uses the result to display on a Siv3D window. 
+```cpp
+# include <Siv3D.hpp>
+#include <torch/script.h>
+#include <vector>
+
+torch::Tensor sigmoid001(const torch::Tensor& x) {
+	//    const torch::Tensor one = torch::tensor(1.0, torch::requires_grad());
+	torch::Tensor sig = 1.0 / (1.0 + torch::exp((-x)));
+	return sig;
+}
+
+torch::Device device(torch::kCUDA);
+torch::Tensor tensor = torch::eye(3).to(device);
+void Main()
+{
+	Window::SetTitle(U"TorchSiv3D C++");
+	const Texture icn0(Emoji(U"✡"));
+	icn0.draw(0, 0);
+			
+	Scene::SetBackground(Color(87, 83, 95));
+			
+	ClearPrint();		
+	const Size size(224, 224);
+	const Font font(110, Typeface::Black);
+	AnimatedGIFWriter gif(U"output.gif", size);
+	Image image(size, Palette::White);
+	for (auto i : Range(1, 8))
+	{
+		image.fill(Palette::White);
+		torch::Tensor t0 = torch::tensor((i)).to(device);
+		
+		Print((t0).data().detach().item().toInt());		
+		font(i).paintAt(image, size / 2, HSV(i * 40, 0.9, 0.7));
+		gif.writeFrame(image, 0.1s);
+	}
+
+```
 
 ## Installation
 
@@ -49,42 +89,13 @@ The integration allows one to:
   * **Close** the _Properties_ window and **launch the game**
 * **Launch** the game and **type** in the _console_ the following command: `exec autoexec.cfg`
 
-##### How to find your SteamID3:
-
-* **Go** to [SteamID](https://steamid.io/).
-* In the _input_ box, **enter** your **profile** name/id and press ***lookup**.
-* All the SteamIDs versions will be shown. You need **SteamID3**.
-  * The format: `[X:Y:ZZZZZZZZ]` - where your *install path id* is the whole `Z` code.
-
-## Updating
-
-When a **new version** is out, you have **two methods** to _update_:
-
-##### 1. You have edited the config based on your preference:
-* Check the new [commits](https://github.com/QuantScientist/Siv3DTorch/commits/master) and **update** the config **manually** by relying on the _commits_.
-
-##### 2. You haven't edited the config (or at least not so much):
-* **Delete everything** (or **replace the files** when it asks).
-* **Redo** the [installation](https://github.com/ArmynC/ArminC-AutoExec#installation) steps.
-* _After setup_, **change your preference** settings back (if it is the case).
-
-This _config_ is **updated** (at a random time), so make sure you **come back** here to **check** for **updates**.
-
 ## Features
 
-|                            | 🔰 Siv3DTorch++  | ◾ Other Configs |
+|                            | 🔰 Siv3DTorch++ VC 19  | ◾ CMake |
 | -------------------------- | :----------------: | :-------------: |
-| Optimized values           |         ✔️         |        ❌        |
-| Useful scripts             |         ✔️         |        ❌        |
-| Documented commands        |         ✔️         |        ❌        |
-| Enabled in-game advantages |         ✔️         |        ❌        |
-| No misconcepted commands   |         ✔️         |        ❌        |
-| Professional info sources  |         ✔️         |        ❌        |
-| Clean sheet/template       |         ✔️         |        ❌        |
-| Easy to customize          |         ✔️         |        ❌        |
-| Categorized by functions   |         ✔️         |        ❌        |
-| New commands/values        |         ✔️         |        ❌        |
-| No old command leftovers   |         ✔️         |        ❌        |
+| PyTorch CPU tensors        |         ✔️         |        ❌        |
+| PyTorch GPU tensors        |         ✔️         |        ❌        |
+| Libtorch 1.6               |         ✔️         |        ❌        |
 
 
 ## Backtesting Signal Accuracy
@@ -92,19 +103,6 @@ During the testing period, the model signals to buy or sell based on its predict
 movement the following day. By putting your trading algorithm aside and testing for signal accuracy
 alone, you can rapidly build and test more reliable models.
 
-```python
-from clairvoyant.engine import Backtest
-import pandas as pd
-
-features  = ["EMA", "SSO"]   # Financial indicators of choice
-trainStart = 0               # Start of training period
-trainEnd   = 700             # End of training period
-testStart  = 701             # Start of testing period
-testEnd    = 1000            # End of testing period
-buyThreshold  = 0.65         # Confidence threshold for predicting buy (default = 0.65) 
-sellThreshold = 0.65         # Confidence threshold for predicting sell (default = 0.65)
-continuedTraining = False    # Continue training during testing period? (default = false)
-```
 
 ## Contributing
 
