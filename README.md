@@ -20,7 +20,7 @@
 <tr>
 <td>
   
-**Siv3DTorch++** is an **integration** of the well-known Japanese _Siv3D_ library and my facourite Deep Learning Library Libtorch: the _PyTorch_ C++ frontend. 
+**Siv3DTorch++** is an **integration** of the well-known Japanese **_Siv3D_** (https://github.com/Siv3D/OpenSiv3D) creative coding library (https://siv3d.github.io/) and my favourite Deep Learning Library Libtorch: the **_PyTorch_** C++ frontend. 
 The integration allowes one to:
  
 
