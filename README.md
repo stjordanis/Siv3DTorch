@@ -137,6 +137,10 @@ void Main()
 * ![Siv3DTorch++ Code](https://github.com/QuantScientist/Siv3DTorch/blob/master/assets/vc-additional.png?raw=true)
 
 
+## Inference
+For inference, you have to copy all the Libtorch DLls to the location of the executable file. For instance:
+![Siv3DTorch++ Code](https://github.com/QuantScientist/Siv3DTorch/blob/master/assets/vc-inference.png?raw=true)
+
 ## Contributing
 
 Feel free to report issues during build or execution. We also welcome suggestions to improve the performance of this application.
