@@ -39,38 +39,39 @@ the GPU and uses the result to display on a Siv3D window.
 # include <Siv3D.hpp>
 #include <torch/script.h>
 #include <vector>
+#include <typeinfo> 
 
-torch::Tensor sigmoid001(const torch::Tensor& x) {
-	//    const torch::Tensor one = torch::tensor(1.0, torch::requires_grad());
+torch::Tensor sigmoid001(const torch::Tensor& x) {	
 	torch::Tensor sig = 1.0 / (1.0 + torch::exp((-x)));
 	return sig;
 }
 
+
 torch::Device device(torch::kCUDA);
 torch::Tensor tensor = torch::eye(3).to(device);
+
 void Main()
 {
 	Window::SetTitle(U"TorchSiv3D C++");
 	const Texture icn0(Emoji(U"✡"));
-	icn0.draw(0, 0);
-			
-	Scene::SetBackground(Color(87, 83, 95));
-			
-	ClearPrint();		
-	const Size size(224, 224);
-	const Font font(110, Typeface::Black);
-	AnimatedGIFWriter gif(U"output.gif", size);
-	Image image(size, Palette::White);
-	for (auto i : Range(1, 8))
-	{
-		image.fill(Palette::White);
-		torch::Tensor t0 = torch::tensor((i)).to(device);
-		
-		Print((t0).data().detach().item().toInt());		
-		font(i).paintAt(image, size / 2, HSV(i * 40, 0.9, 0.7));
-		gif.writeFrame(image, 0.1s);
+	icn0.draw(0, 0);				
+	Scene::SetBackground(Color(87, 83, 95));					
+					
+	while (System::Update())
+	{	
+		for (auto i : Range(1, 20))
+		{
+			//ClearPrint();			
+			//torch::Tensor t0 = torch::tensor((i)).to(device);
+			torch::Tensor t0 = torch::rand(1).to(device); // Allocate a tensor on the GPU
+			t0 = sigmoid001(t0);
+			//Print (typeid(t0).name());		
+			auto x = (t0).data().detach().item().toFloat(); // Move it to teh CPU
+			Print(x); //Use it from Siv3D			
+			Circle(300 * (x), 300*x, 50*x).draw((ColorF(0.5 *x, 0.9*x, 0.3*x)));
+		}		
 	}
-
+}
 ```
 
 ## Installation
