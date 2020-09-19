@@ -33,10 +33,19 @@ The integration allows one to:
 </table>
 
 ## A simple example 
-The folowing example allocates a PyTorch style tensor on the GPU ( a CPU is also supported of course), then detaches the tensor from 
-the GPU and uses the result to display on a Siv3D window. 
+The folowing example allocates a PyTorch style random tensor on the GPU ( a CPU is also supported of course), applies the sigmoid to it, then detaches the tensor from 
+the GPU and uses the result to display on a Siv3D window.
+ 
+```cpp
+torch::Tensor sigmoid001(const torch::Tensor & x ){
+    torch::Tensor sig = 1.0 / (1.0 + torch::exp(( -x)));
+    return sig;
+}
+```
 
 ![Siv3DTorch++ Code](https://github.com/QuantScientist/Siv3DTorch/blob/master/simple001.gif?raw=true)
+
+Full source code:
 
 ```cpp
 # include <Siv3D.hpp>
