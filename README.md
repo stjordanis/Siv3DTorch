@@ -143,6 +143,16 @@ void Main()
 For inference, you have to copy all the Libtorch DLls to the location of the executable file. For instance:
 ![Siv3DTorch++ Code](https://github.com/QuantScientist/Siv3DTorch/blob/master/assets/vc-inference.png?raw=true)
 
+## Examples under the SRC folder
+
+* A Simple example, mainly for testing the integration. Allocates a tensor on the GPU.
+![Siv3DTorch++ Code](https://github.com/QuantScientist/Siv3DTorch/blob/master/assets/simple001.gif?raw=true)
+ 
+* Generate random numbers in both Siv3D and Libtorch.
+![Siv3DTorch++ Code](https://github.com/QuantScientist/Siv3DTorch/blob/master/assets/random002.gif?raw=true)
+
+ 
+
 ## Contributing
 
 Feel free to report issues during build or execution. We also welcome suggestions to improve the performance of this application.
@@ -168,3 +178,15 @@ If you find the code or trained models useful, please consider citing:
 [![License: CC BY-NC-SA 4.0](https://img.shields.io/badge/License-CC%20BY--NC--SA%204.0-orange.svg?style=flat-square)](https://creativecommons.org/licenses/by-nc-sa/4.0/)
 
 - Copyright © [Shlomo](https://github.com/QuantScientist/).
+
+# References
+ 
+- https://www.jianshu.com/p/6fe9214431c6
+- https://github.com/lsrock1/maskrcnn_benchmark.cpp
+- https://github.com/BAIDU-USA-GAIT-LEOPARD/CIFAR10-Training-BaiduNet9
+- https://github.com/BAIDU-USA-GAIT-LEOPARD/CIFAR10-Inference-BaiduNet8
+- https://github.com/BIGBALLON/PyTorch-CPP
+- https://gist.github.com/Con-Mi/4d92af62adb784a5353ff7cf19d6d099
+- https://lernapparat.de/pytorch-traceable-differentiable/
+- http://lernapparat.de/static/artikel/pytorch-jit-android/thomas_viehmann.pytorch_jit_android_2018-12-11.pdf
+- https://github.com/walktree/libtorch-yolov3
