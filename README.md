@@ -109,18 +109,20 @@ void Main()
 * PyTorch / LibTorch c++ version 1.6.  
 * 64 bit only.  
 
-## Installation
+## Installation ( WORK IN PROGRESS) 
 
 #### Downloading and installing steps LIBTORCH C++:
-* **[Download]()** the latest version of Siv3D.
-* **Go** to the following path: `\...\Steam\userdata\<Your_SteamID3>\730\local\`
-  * See below **[how to find your SteamID3](https://github.com/ArmynC/ArminC-AutoExec#how-to-find-your-steamid3)**.
-* Place the **cfg** folder (from .zip) inside the **local** folder (from the path).
-  * Replace all files if it asks.
-    * To use the **Video Settings**, rename `video_optional.txt` to `video.txt` and set it to `Read-only`.
+* **[Download]()** the latest version of Libtorch for Windows here: https://pytorch.org/.
+![Siv3DTorch++ Code](https://github.com/QuantScientist/Siv3DTorch/blob/master/libtorch16.png?raw=true)
+
+* **Go** to the following path: `mysiv3dproject/`
+* Place the **LiBtorch ZIP** folder (from .zip) inside the **prohect** folder as follows `mysiv3dproject/libtorch/`:
+  
 
 #### Downloading and installing steps Siv3D C++:
-* **[Download]()** the latest version of Siv3D.
+* **[Download]()** the latest version of Siv3D and install it.
+* In VC 19, create a new Siv3D project from the provided template. 
+ 
 
 ## Visual Studio 19 config 
 * ![Siv3DTorch++ Code](https://github.com/QuantScientist/Siv3DTorch/blob/master/vc-torch.png?raw=true)
