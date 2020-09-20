@@ -18,6 +18,16 @@ torch::Device device(torch::kCUDA);
 torch::Tensor tensor = torch::eye(3).to(device);
 torch::data::transforms::Normalize<> normalize_transform({ 0.485, 0.456, 0.406 }, { 0.229, 0.224, 0.225 });
 
+// Input PNG-image
+png::image<png::rgb_pixel> imageI("input001.png");
+// Convert png::image into torch::Tensor
+torch::Tensor tensor = VU.ConvertRGBintoTensor(imageI);
+std::cout << "C:" << tensor.size(0) << " H:" << tensor.size(1) << " W:" << tensor.size(2) << std::endl;
+// Convert torch::Tensor into png::image
+png::image<png::rgb_pixel> imageO = VU.ConvertTensorintoRGB(tensor);
+// Input PNG-image
+imageO.write("output001.png");
+
 //Adapted from https://github.com/prabhuomkar/pytorch-cpp/tree/master/utils/image_io
 // Loads a tensor from an image file
 torch::Tensor load_image(const std::string& file_path,

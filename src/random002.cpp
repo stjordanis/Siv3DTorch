@@ -13,21 +13,16 @@ torch::Tensor tensor = torch::eye(3).to(device);
 
 void Main()
 {
-	Window::SetTitle(U"TorchSiv3D C++");
-	
+	Window::SetTitle(U"TorchSiv3D C++");	
 	const Texture icn0(Emoji(U"✡"));
 	icn0.draw(0, 0);				
 	Scene::SetBackground(Color(90, 81, 95));				
-
-	//const Texture texture(Image(L"Example/Windmill.png").scale(0.3));	
-					
+	//const Texture texture(Image(L"Example/Windmill.png").scale(0.3));						
 	while (System::Update())
 	{	
-		//constexpr RectF shape(100, 100, 400, 300);
-		constexpr Circle shape(300, 200, 150);
-
+		constexpr RectF shape(100, 100, 400, 300);
+		//constexpr Circle shape(300, 200, 150);
 		Array<Vec2> points;
-
 		shape.draw(Palette::Black);
 		
 		for (size_t i = 0; i < 100; ++i)
@@ -49,19 +44,24 @@ void Main()
 			//Print (typeid(t0).name());		
 			auto x = (t0).data().detach().item().toFloat(); // Move it to the CPU
 			Print(x); //Use it from Siv3D			
-			Circle(300 * (x), 300*x, 100*x).draw(
+			Circle(300 * (x), 300*x, 100*x).
+				draw(
 				(ColorF(
 				0.5 * torch::rand(1).to(device).data().detach().item().toFloat(),
 				0.9*x, 
 				0.3*x)));
 		}	
 
-		int sx = Random(Window::ClientWidth()) / 2;
-		int sy = Random(Window::ClientWidth()) / 2;
-		int dx = 200 + Random(20);
-		int dy = 10 + Random(10);
+		int sx = (Random(Window::ClientWidth()) / 2);
+		int sy = (Random(Window::ClientWidth()) / 2);
+
+		int dx = 200 * torch::rand(1).to(device).data().detach().item().toFloat() + Random(20);
+		int dy = 75 * torch::rand(1).to(device).data().detach().item().toFloat() + Random(10);
 		RectF rect = RectF(sx, sy, dx, dy);
-		rect.draw();
+		rect.draw((ColorF(
+			0.5 * torch::rand(1).to(device).data().detach().item().toFloat(),
+			0.7 * torch::rand(1).to(device).data().detach().item().toFloat(),
+			0.3 * torch::rand(1).to(device).data().detach().item().toFloat())));
 	}
 }
 

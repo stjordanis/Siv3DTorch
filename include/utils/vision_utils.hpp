@@ -1,4 +1,3 @@
-#include <torch/script.h>
 #include <iostream>
 #include <chrono>
 
@@ -10,11 +9,12 @@
 #include <iostream>
 #include <time.h>
 #include <typeinfo>
+#include <png++/png.hpp>
 #include <thread>
 #include <future>
-# include <Siv3D.hpp>
 
 using namespace std;
+//using namespace cv;
 using namespace std::chrono;
 class VisionUtils {
 //public:
@@ -28,9 +28,53 @@ public:
     cv::Mat tensorToOpenCv(at::Tensor out_tensor, int h, int w, int c);
     void processVideo(const std::string &modelName, c10::Device device, const std::string &vidName);
     void tensorDIMS(const torch::Tensor &tensor);
+    torch::Tensor ConvertRGBintoTensor(png::image<png::rgb_pixel> &image);
+    png::image<png::rgb_pixel> ConvertTensorintoRGB(torch::Tensor &tensor_);
+
+//    juce::Image matToJuceImage(cv::Mat original, int h, int w, int c); //does not work
+//    juce::Image tensor_to_image(const torch::Tensor &tensor);
+//    juce::Image::PixelFormat num_channels_to_format(int num_channels);
+//    int format_to_num_channels(juce::Image::PixelFormat format);
+//    void savePNG(const Image &juceImage, const std::string path) const;
+//    torch::Tensor image_to_tensor(const juce::Image &image);
+
 };
 
 VisionUtils::VisionUtils() {}
+
+//Adapted from https://github.com/koba-jon/pytorch_cpp/blob/master/utils/visualizer.cpp
+torch::Tensor VisionUtils::ConvertRGBintoTensor(png::image<png::rgb_pixel> &image){
+    size_t width = image.get_width();
+    size_t height = image.get_height();
+    unsigned char *pointer = new unsigned char[width * height * 3];
+    for (size_t j = 0; j < height; j++){
+        for (size_t i = 0; i < width; i++){
+            pointer[j * width * 3 + i * 3 + 0] = image[j][i].red;
+            pointer[j * width * 3 + i * 3 + 1] = image[j][i].green;
+            pointer[j * width * 3 + i * 3 + 2] = image[j][i].blue;
+        }
+    }
+    torch::Tensor tensor = torch::from_blob(pointer, {image.get_height(), image.get_width(), 3}, torch::kUInt8).clone();  // copy
+    tensor = tensor.permute({2, 0, 1});  // {H,W,C} ===> {C,H,W}
+    delete[] pointer;
+    return tensor;
+}
+
+png::image<png::rgb_pixel> VisionUtils::ConvertTensorintoRGB(torch::Tensor &tensor_){
+    torch::Tensor tensor = tensor_.permute({1, 2, 0});  // {C,H,W} ===> {H,W,C}
+    size_t width = tensor.size(1);
+    size_t height = tensor.size(0);
+    unsigned char *pointer = tensor.data_ptr<unsigned char>();
+    png::image<png::rgb_pixel> image(width, height);
+    for (size_t j = 0; j < height; j++){
+        for (size_t i = 0; i < width; i++){
+            image[j][i].red = pointer[j * width * 3 + i * 3 + 0];
+            image[j][i].green = pointer[j * width * 3 + i * 3 + 1];
+            image[j][i].blue = pointer[j * width * 3 + i * 3 + 2];
+        }
+    }
+    return image;
+}
 
 at::Tensor VisionUtils::matToTensor(cv::Mat frame, int h, int w, int c) {
     cv::cvtColor(frame, frame, CV_BGR2RGB);
@@ -90,7 +134,7 @@ void VisionUtils::processVideo(const std::string &modelName, c10::Device device,
 
     for (long num_frames = 0; num_frames < nb_frames; num_frames++) {
         video_reader >> frame;
-        //cv::imshow("orig", frame);
+        cv::imshow("orig", frame);
 
         auto input_tensor = matToTensor(frame, frame_h, frame_w, kCHANNELS);
 //        tensorDIMS(input_tensor); // 1/_3/_720/_1280
@@ -114,7 +158,7 @@ void VisionUtils::processVideo(const std::string &modelName, c10::Device device,
         stringstream ss_nb;
         ss_nb << num_frames;
         string num_frames_str = ss_nb.str();
-        //Print(num_frames);
+
         cv::putText(resultImg,
                     this_id_str,
                     cv::Point(50, 50), // Coordinates
@@ -132,10 +176,10 @@ void VisionUtils::processVideo(const std::string &modelName, c10::Device device,
                     cv::Scalar(255, 255, 0), // BGR Color
                     1 // Line Thickness (Optional)
         );
-        //cv::imshow(this_id_str, resultImg);
-        //char key = cv::waitKey(10);
-        //if (key == 27) // ESC
-        //    break;
+        cv::imshow(this_id_str, resultImg);
+        char key = cv::waitKey(10);
+        if (key == 27) // ESC
+            break;
     }
 }
 
@@ -144,3 +188,82 @@ void VisionUtils::tensorDIMS(const torch::Tensor &tensor) {
     auto s = tensor.sizes();
     cout << "D=:" << s << "\n";
 }
+
+//void VisionUtils::savePNG(const Image &juceImage, const std::string path) const {
+//    FileOutputStream stream(File("test.png"));
+//    PNGImageFormat pngWriter;
+//    pngWriter.writeImageToStream(juceImage, stream);
+//}
+//
+//juce::Image VisionUtils::matToJuceImage(cv::Mat original, int h, int w, int c) {
+//    juce::Image image(juce::Image::RGB, h, w, false);
+//    const size_t number_of_bytes_to_copy = 3 * w; // times 3 since each pixel contains 3 bytes (RGB)
+//    juce::Image::BitmapData bitmap_data(image, 0, 0, h, w, juce::Image::BitmapData::ReadWriteMode::writeOnly);
+//    for (int row_index = 0; row_index < h; row_index++) {
+//        uint8_t *src_ptr = original.ptr(row_index);
+//        uint8_t *dst_ptr = bitmap_data.getLinePointer(row_index);
+//
+//        std::memcpy(dst_ptr, src_ptr, number_of_bytes_to_copy);
+//    }
+//
+//    return image;
+//}
+//
+
+//
+//juce::Image VisionUtils::tensor_to_image(const torch::Tensor &tensor) {
+//    // expected tensor format: [batch, num_channels, height, width], values in interval [0, 255]
+//    auto image_format = num_channels_to_format(tensor.size(1)); // channel is dim1, not dim0
+//    auto image_height = tensor.size(2);
+//    auto image_width = tensor.size(3);
+//
+//    auto image_tensor = tensor.squeeze().detach().permute({1, 2, 0})
+//            .mul(255).clamp(0, 255).
+//                    to(torch::kU8).to(torch::kCPU); // Clamp ro 255 super important, 0-1 is wrong
+////    .contiguous(); // Because of image_tensor.numel() * sizeof(torch::kUInt8)
+//
+//    image_height = image_tensor.size(0);
+//    image_width = image_tensor.size(1);
+//    juce::Image image(image_format, image_width, image_height, true);
+//    juce::Image::BitmapData image_data(image, juce::Image::BitmapData::ReadWriteMode::writeOnly);
+//    std::memcpy(image_data.data, image_tensor.data_ptr(), image_tensor.numel() * sizeof(torch::kUInt8));
+//    return image;
+//}
+//
+//torch::Tensor VisionUtils::image_to_tensor(const juce::Image &image) {
+//    juce::Image::BitmapData image_data(image, juce::Image::BitmapData::readOnly);
+//
+//    auto num_channels = format_to_num_channels(image.getFormat());
+//
+//    // output tensor format: [num_channels, height, width], values in interval [0, 1]
+//    return torch::from_blob(image_data.data, {image.getHeight(), image.getWidth(), num_channels}, torch::kUInt8)
+//            .clone()
+//            .to(torch::kFloat32)
+//            .permute({2, 0, 1})
+//            .div_(255);
+//}
+//
+//juce::Image::PixelFormat VisionUtils::num_channels_to_format(int num_channels) {
+//    switch (num_channels) {
+//        case 1:
+//            return juce::Image::SingleChannel;
+//        case 3:
+//            return juce::Image::RGB;
+//        case 4:
+//            return juce::Image::ARGB;
+//        default:
+//            throw std::runtime_error("Invalid number of channels");
+//    }
+//}
+//
+//int VisionUtils::format_to_num_channels(juce::Image::PixelFormat format) {
+//    switch (format) {
+//        case juce::Image::SingleChannel:
+//            return 1;
+//        case juce::Image::RGB:
+//            return 3;
+//        case juce::Image::ARGB:
+//            return 4;
+//        default:
+//            throw std::runtime_error("Invalid image format");
+//    }
