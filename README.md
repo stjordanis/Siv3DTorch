@@ -1,5 +1,5 @@
 
-<h4 align="center">An integration of the Siv3D C++ framework with the Libtorch C++ Deep Learning Library</h4>
+<h4 align="center">An integration of the Siv3D C++ creative coding framework with the Libtorch C++ Deep Learning Library</h4>
       
 <p align="center">
   <a href="#about">About</a> •
@@ -23,7 +23,8 @@
 <tr>
 <td>
   
-**Siv3DTorch++** is an **integration** of the well-known Japanese / 日本語 **_OpenSiv3D_** (https://github.com/Siv3D/OpenSiv3D) creative coding library (https://siv3d.github.io/) and my favourite Deep Learning Library Libtorch: the **_PyTorch_** C++ frontend.
+**Siv3DTorch++** is an **integration** of the well-known Japanese / 日本語 **_OpenSiv3D_** (https://github.com/Siv3D/OpenSiv3D) creative coding library (https://siv3d.github.io/) 
+and my favourite Deep Learning Library Libtorch: the **_PyTorch_** C++ frontend.
  
 ![Siv3DTorch++ Code](https://github.com/QuantScientist/Siv3DTorch/blob/master/assets/simple001.gif?raw=true)
 
