@@ -96,6 +96,11 @@ void Main()
 }
 ```
 
+## 🐾 Status
+
+![GitHub Stats Card](https://github-readme-stats.vercel.app/api?username=Ganariya&count_private=true&show_icons=true&theme=dracula)
+
+
 ## Features
 
 |                            | 🔰 Siv3DTorch++ VC 19  | ◾ CMake |

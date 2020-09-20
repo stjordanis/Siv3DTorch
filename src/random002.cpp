@@ -19,7 +19,7 @@ void Main()
 	icn0.draw(0, 0);				
 	Scene::SetBackground(Color(90, 81, 95));				
 
-	//const Texture texture(Image(L"Example/Windmill.png").scale(0.3));
+	//const Texture texture(Image(L"Example/Windmill.png").scale(0.3));	
 					
 	while (System::Update())
 	{	
@@ -56,6 +56,12 @@ void Main()
 				0.3*x)));
 		}	
 
+		int sx = Random(Window::ClientWidth()) / 2;
+		int sy = Random(Window::ClientWidth()) / 2;
+		int dx = 200 + Random(20);
+		int dy = 10 + Random(10);
+		RectF rect = RectF(sx, sy, dx, dy);
+		rect.draw();
 	}
 }
 
