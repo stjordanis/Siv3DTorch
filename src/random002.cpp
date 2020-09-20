@@ -14,10 +14,12 @@ torch::Tensor tensor = torch::eye(3).to(device);
 void Main()
 {
 	Window::SetTitle(U"TorchSiv3D C++");
+	
 	const Texture icn0(Emoji(U"✡"));
 	icn0.draw(0, 0);				
 	Scene::SetBackground(Color(90, 81, 95));				
-	
+
+	//const Texture texture(Image(L"Example/Windmill.png").scale(0.3));
 					
 	while (System::Update())
 	{	

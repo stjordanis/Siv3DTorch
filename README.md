@@ -44,7 +44,9 @@ By including a single header file, `#include <torch/script.h>` The integration a
 </table>
 
 ## Credits 
-* A C++17/C++20 framework for creative coding https://github.com/Siv3D/OpenSiv3D, for 日本語: https://siv3d.github.io/ja-jp/, for English: https://siv3d.github.io/. 
+* A C++17/C++20 framework for creative coding https://github.com/Siv3D/OpenSiv3D, for 日本語: https://siv3d.github.io/ja-jp/, for English: https://siv3d.github.io/.
+ 
+* PyTorch CPP examples + CMake build: https://github.com/prabhuomkar/pytorch-cpp/
 
 ## A simple example 
 The folowing example allocates a PyTorch style random tensor on the GPU ( a CPU is also supported of course), applies the sigmoid to it, then detaches the tensor from 
@@ -113,6 +115,9 @@ void Main()
  
 * Generate random numbers in both Siv3D and Libtorch.
 ![Siv3DTorch++ Code](https://github.com/QuantScientist/Siv3DTorch/blob/master/assets/random002.gif?raw=true)
+
+* Load a trained PyTorch model in C++ (**see pth folder**), load an Image in C++, display the dimentions of the image on Siv3D. 
+![Siv3DTorch++ Code](https://github.com/QuantScientist/Siv3DTorch/blob/master/assets/load-model.png?raw=true)
 
 
 ## Requirements:
