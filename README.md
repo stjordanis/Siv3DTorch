@@ -71,10 +71,9 @@ torch::Tensor sigmoid001(const torch::Tensor& x) {
 	torch::Tensor sig = 1.0 / (1.0 + torch::exp((-x)));
 	return sig;
 }
-
-
-torch::Device device(torch::kCUDA);
-torch::Tensor tensor = torch::eye(3).to(device);
+torch::Device device(torch::kCUDA); // Allocate on the GPU
+torch::Tensor tensor = torch::eye(3).to(device); // Sanity check, Linking against CUDA is done with 
+// the _-INCLUDE:?warp_size@cuda@at@@YAHXZ_ C++ command line flag in VC 19 
 
 void Main()
 {
@@ -86,12 +85,9 @@ void Main()
 	while (System::Update())
 	{	
 		for (auto i : Range(1, 20))
-		{
-			//ClearPrint();			
-			//torch::Tensor t0 = torch::tensor((i)).to(device);
+		{			
 			torch::Tensor t0 = torch::rand(1).to(device); // Allocate a tensor on the GPU
-			t0 = sigmoid001(t0);
-			//Print (typeid(t0).name());		
+			t0 = sigmoid001(t0);				
 			auto x = (t0).data().detach().item().toFloat(); // Move it to teh CPU
 			Print(x); //Use it from Siv3D			
 			Circle(300 * (x), 300*x, 50*x).draw((ColorF(0.5 *x, 0.9*x, 0.3*x)));
