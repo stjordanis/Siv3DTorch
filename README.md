@@ -111,12 +111,15 @@ void Main()
 ## Examples
 
 * A Simple example, mainly for testing the integration. Allocates a tensor on the GPU.
+
 ![Siv3DTorch++ Code](https://github.com/QuantScientist/Siv3DTorch/blob/master/assets/simple001.gif?raw=true)
  
 * Generate random numbers in both Siv3D and Libtorch.
+
 ![Siv3DTorch++ Code](https://github.com/QuantScientist/Siv3DTorch/blob/master/assets/random002.gif?raw=true)
 
-* Load a trained PyTorch model in C++ (**see pth folder**), load an Image in C++, display the dimentions of the image on Siv3D. 
+* Load a trained PyTorch model in C++ (**see pth folder**), load an Image in C++, display the dimentions of the image on Siv3D.
+ 
 ![Siv3DTorch++ Code](https://github.com/QuantScientist/Siv3DTorch/blob/master/assets/load-model.png?raw=true)
 
 
