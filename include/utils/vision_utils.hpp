@@ -14,7 +14,6 @@
 #include <future>
 
 using namespace std;
-//using namespace cv;
 using namespace std::chrono;
 class VisionUtils {
 //public:
@@ -30,13 +29,6 @@ public:
     void tensorDIMS(const torch::Tensor &tensor);
     torch::Tensor ConvertRGBintoTensor(png::image<png::rgb_pixel> &image);
     png::image<png::rgb_pixel> ConvertTensorintoRGB(torch::Tensor &tensor_);
-
-//    juce::Image matToJuceImage(cv::Mat original, int h, int w, int c); //does not work
-//    juce::Image tensor_to_image(const torch::Tensor &tensor);
-//    juce::Image::PixelFormat num_channels_to_format(int num_channels);
-//    int format_to_num_channels(juce::Image::PixelFormat format);
-//    void savePNG(const Image &juceImage, const std::string path) const;
-//    torch::Tensor image_to_tensor(const juce::Image &image);
 
 };
 
@@ -188,82 +180,3 @@ void VisionUtils::tensorDIMS(const torch::Tensor &tensor) {
     auto s = tensor.sizes();
     cout << "D=:" << s << "\n";
 }
-
-//void VisionUtils::savePNG(const Image &juceImage, const std::string path) const {
-//    FileOutputStream stream(File("test.png"));
-//    PNGImageFormat pngWriter;
-//    pngWriter.writeImageToStream(juceImage, stream);
-//}
-//
-//juce::Image VisionUtils::matToJuceImage(cv::Mat original, int h, int w, int c) {
-//    juce::Image image(juce::Image::RGB, h, w, false);
-//    const size_t number_of_bytes_to_copy = 3 * w; // times 3 since each pixel contains 3 bytes (RGB)
-//    juce::Image::BitmapData bitmap_data(image, 0, 0, h, w, juce::Image::BitmapData::ReadWriteMode::writeOnly);
-//    for (int row_index = 0; row_index < h; row_index++) {
-//        uint8_t *src_ptr = original.ptr(row_index);
-//        uint8_t *dst_ptr = bitmap_data.getLinePointer(row_index);
-//
-//        std::memcpy(dst_ptr, src_ptr, number_of_bytes_to_copy);
-//    }
-//
-//    return image;
-//}
-//
-
-//
-//juce::Image VisionUtils::tensor_to_image(const torch::Tensor &tensor) {
-//    // expected tensor format: [batch, num_channels, height, width], values in interval [0, 255]
-//    auto image_format = num_channels_to_format(tensor.size(1)); // channel is dim1, not dim0
-//    auto image_height = tensor.size(2);
-//    auto image_width = tensor.size(3);
-//
-//    auto image_tensor = tensor.squeeze().detach().permute({1, 2, 0})
-//            .mul(255).clamp(0, 255).
-//                    to(torch::kU8).to(torch::kCPU); // Clamp ro 255 super important, 0-1 is wrong
-////    .contiguous(); // Because of image_tensor.numel() * sizeof(torch::kUInt8)
-//
-//    image_height = image_tensor.size(0);
-//    image_width = image_tensor.size(1);
-//    juce::Image image(image_format, image_width, image_height, true);
-//    juce::Image::BitmapData image_data(image, juce::Image::BitmapData::ReadWriteMode::writeOnly);
-//    std::memcpy(image_data.data, image_tensor.data_ptr(), image_tensor.numel() * sizeof(torch::kUInt8));
-//    return image;
-//}
-//
-//torch::Tensor VisionUtils::image_to_tensor(const juce::Image &image) {
-//    juce::Image::BitmapData image_data(image, juce::Image::BitmapData::readOnly);
-//
-//    auto num_channels = format_to_num_channels(image.getFormat());
-//
-//    // output tensor format: [num_channels, height, width], values in interval [0, 1]
-//    return torch::from_blob(image_data.data, {image.getHeight(), image.getWidth(), num_channels}, torch::kUInt8)
-//            .clone()
-//            .to(torch::kFloat32)
-//            .permute({2, 0, 1})
-//            .div_(255);
-//}
-//
-//juce::Image::PixelFormat VisionUtils::num_channels_to_format(int num_channels) {
-//    switch (num_channels) {
-//        case 1:
-//            return juce::Image::SingleChannel;
-//        case 3:
-//            return juce::Image::RGB;
-//        case 4:
-//            return juce::Image::ARGB;
-//        default:
-//            throw std::runtime_error("Invalid number of channels");
-//    }
-//}
-//
-//int VisionUtils::format_to_num_channels(juce::Image::PixelFormat format) {
-//    switch (format) {
-//        case juce::Image::SingleChannel:
-//            return 1;
-//        case juce::Image::RGB:
-//            return 3;
-//        case juce::Image::ARGB:
-//            return 4;
-//        default:
-//            throw std::runtime_error("Invalid image format");
-//    }
