@@ -96,11 +96,6 @@ void Main()
 }
 ```
 
-## 🐾 Status
-
-![GitHub Stats Card](https://github-readme-stats.vercel.app/api?username=QuantScientist&count_private=true&show_icons=true&theme=dracula)
-
-
 ## Features
 
 |                            | 🔰 Siv3DTorch++ VC 19  | ◾ CMake |
@@ -108,6 +103,7 @@ void Main()
 | PyTorch CPU tensors        |         ✔️         |        ❌        |
 | PyTorch GPU tensors        |         ✔️         |        ❌        |
 | Libtorch C++ 1.6           |         ✔️         |        ❌        |
+| Read/ write PNG / Tensor   |         ✔️         |        ❌        |
 
 
 ## Examples
@@ -123,6 +119,11 @@ void Main()
 * Load a trained PyTorch model in C++ (**see pth folder**), load an Image in C++, display the dimentions of the image on Siv3D.
  
 ![Siv3DTorch++ Code](https://github.com/QuantScientist/Siv3DTorch/blob/master/assets/load-model.png?raw=true)
+
+* Read a PNG, convert it to `torch::tensor`, convert it back to a PNG in Siv3D and display the image on Siv3D window.
+Uses: https://github.com/QuantScientist/PngTorch
+ 
+![Siv3DTorch++ Code](https://github.com/QuantScientist/Siv3DTorch/blob/master/assets/readpng004.png?raw=true)
 
 
 ## Requirements:
@@ -202,3 +203,7 @@ If you find the code or trained models useful, please consider citing:
 - https://lernapparat.de/pytorch-traceable-differentiable/
 - http://lernapparat.de/static/artikel/pytorch-jit-android/thomas_viehmann.pytorch_jit_android_2018-12-11.pdf
 - https://github.com/walktree/libtorch-yolov3
+
+## 🐾 Status
+
+![GitHub Stats Card](https://github-readme-stats.vercel.app/api?username=QuantScientist&count_private=true&show_icons=true&theme=dracula)
