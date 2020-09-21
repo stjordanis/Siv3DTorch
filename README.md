@@ -108,22 +108,22 @@ void Main()
 
 ## Examples
 
-* A Simple example, mainly for testing the integration. Allocates a tensor on the GPU.
+#### A Simple example, mainly for testing the integration. Allocates a tensor on the GPU.
 
 ![Siv3DTorch++ Code](https://github.com/QuantScientist/Siv3DTorch/blob/master/assets/simple001.gif?raw=true)
  
-* Generate random numbers in both Siv3D and Libtorch.
+#### Generate random numbers in both Siv3D and Libtorch.
 
 ![Siv3DTorch++ Code](https://github.com/QuantScientist/Siv3DTorch/blob/master/assets/random002.gif?raw=true)
 
-* Load a trained PyTorch model in C++ (**see pth folder**), load an Image in C++, display the dimentions of the image on Siv3D.
+#### Load a trained PyTorch model in C++ (**see pth folder**), load an Image in C++, display the dimentions of the image on Siv3D.
  
 ![Siv3DTorch++ Code](https://github.com/QuantScientist/Siv3DTorch/blob/master/assets/load-model.png?raw=true)
 
-* Read a PNG, convert it to `torch::tensor`, convert it back to a PNG in Siv3D and display the image on Siv3D window.
+#### Read a PNG, convert it to `torch::tensor`, convert it back to a PNG in Siv3D and display the image on Siv3D window.
 Uses: https://github.com/QuantScientist/PngTorch
  
-![Siv3DTorch++ Code](https://github.com/QuantScientist/Siv3DTorch/blob/master/assets/readpng004.png?raw=true)
+![Siv3DTorch++ Code](https://github.com/QuantScientist/Siv3DTorch/blob/master/assets/readpng004.gif?raw=true)
 
 
 ## Requirements:
