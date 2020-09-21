@@ -52,14 +52,6 @@ By including a single header file, `#include <torch/script.h>` The integration a
 ## A simple example 
 The folowing example allocates a PyTorch style random tensor on the GPU ( a CPU is also supported of course), applies the sigmoid to it, then detaches the tensor from 
 the GPU and uses the result to display on a Siv3D window.
- 
-```cpp
-torch::Tensor sigmoid001(const torch::Tensor & x ){
-    torch::Tensor sig = 1.0 / (1.0 + torch::exp(( -x)));
-    return sig;
-}
-```
-Full source code:
 
 ```cpp
 # include <Siv3D.hpp>
